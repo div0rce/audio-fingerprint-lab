@@ -4,19 +4,25 @@
 A MATLAB audio-processing pipeline for WAV ingestion, waveform visualization, FIR filtering, and fingerprint-based matching.
 
 ## Current Implementation
-The current stage loads local WAV files, extracts metadata, converts stereo signals to mono for analysis, plots time-domain waveforms, and exports figures.
+The current pipeline supports:
+- local WAV ingestion,
+- sample-rate and duration inspection,
+- stereo-to-mono waveform visualization,
+- FIR low-pass filtering,
+- FIR high-pass filtering,
+- filter response plotting,
+- local-only filtered audio export.
 
 ## Technical Signals
 - MATLAB scripting
-- audio file I/O
-- signal metadata extraction
-- time-domain visualization
-- modular project organization
-- staged DSP pipeline design
+- WAV audio I/O
+- FIR filter design
+- Hamming-window filter construction
+- frequency-response analysis
+- phase-response analysis
+- batch-compatible MATLAB execution
 
 ## Planned Extensions
-- FIR low-pass and high-pass filtering
-- frequency-response visualization
 - spectrogram generation
 - compact audio fingerprints
 - nearest-match query system

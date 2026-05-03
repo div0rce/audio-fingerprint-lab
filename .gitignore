@@ -21,6 +21,9 @@ Thumbs.db
 *.aac
 *.m4a
 
+# Local processed audio outputs
+data/processed/
+
 # Generated figures
 figures/*.png
 figures/*.jpg
