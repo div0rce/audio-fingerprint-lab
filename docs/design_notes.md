@@ -9,3 +9,13 @@ The project is organized as a staged audio-processing pipeline:
 
 ## Implementation Language
 MATLAB is used because it provides direct support for audio I/O, signal visualization, and DSP filter design.
+
+## Stage 1: Ingestion
+The ingestion script performs five basic operations:
+1. validates that local WAV files exist,
+2. loads each file using `audioread`,
+3. extracts sample rate and channel metadata,
+4. converts stereo signals to mono for plotting,
+5. exports time-domain waveform figures.
+
+The script uses a cell-array structure so additional files can be added with minimal changes.
