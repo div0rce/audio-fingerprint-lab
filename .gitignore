@@ -30,6 +30,9 @@ figures/*.jpg
 figures/*.jpeg
 figures/*.pdf
 
+# Private report notes
+private/
+
 # Keep placeholder folders
 !data/examples/.gitkeep
 !data/recordings/.gitkeep
