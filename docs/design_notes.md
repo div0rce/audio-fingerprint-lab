@@ -41,5 +41,24 @@ For each filter, the project exports:
 - phase response versus rad/sample,
 - phase response versus Hz.
 
+## Stage 3: Audio Fingerprinting
+The fingerprinting stage uses spectrogram-based peak detection. Each WAV file is converted to mono and normalized before the spectrogram is computed.
+
+Local maxima in the magnitude spectrogram are selected as prominent time-frequency peaks. The peak threshold is computed per file from the 99.5th percentile of spectrogram magnitudes, which adapts the detector to different signal levels.
+
+Each fingerprint hash stores a relationship between two nearby peaks:
+```text
+[f1, f2, deltaT]
+```
+
+where `f1` is the anchor peak frequency, `f2` is the target peak frequency, and `deltaT` is the time separation between them. Peaks are sorted by time before hash construction so the paired relationships follow the clip timeline.
+
+The matcher converts each file's hashes into a set of string keys and computes Jaccard similarity:
+```text
+score = shared_hashes / total_unique_hashes
+```
+
+The query is assigned to the database song with the highest score. This simple metric rewards shared spectral peak relationships while penalizing unrelated hashes.
+
 ## Pipeline Organization
 Each stage is exposed through a separate MATLAB entry point. This keeps ingestion, filtering, and fingerprint matching independently testable as the project grows.

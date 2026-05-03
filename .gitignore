@@ -24,6 +24,13 @@ Thumbs.db
 # Local processed audio outputs
 data/processed/
 
+# Local source audio
+data/source_audio/
+
+# Local fingerprinting datasets
+data/fingerprint_db/
+data/queries/
+
 # Generated figures
 figures/*.png
 figures/*.jpg
