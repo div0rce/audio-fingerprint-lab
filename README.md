@@ -21,7 +21,8 @@ The current implementation focuses on the ingestion, waveform visualization, and
 | Figure export | Implemented | Saves generated plots to `figures/` |
 | FIR filtering | Implemented | Applies low-pass and high-pass FIR filters to local WAV files |
 | Frequency response plots | Implemented | Exports magnitude and phase plots versus rad/sample and Hz |
-| Fingerprint matching | Planned | Spectrogram-based matching pipeline |
+| Fingerprint generation | Implemented | Extracts spectrogram peaks and generates hash-style fingerprint rows |
+| Fingerprint matching | Implemented | Compares query fingerprints against a 9-song local database |
 
 ## Project Goals
 - Load WAV files into MATLAB.
@@ -61,8 +62,6 @@ Implemented:
 - FIR high-pass filtering
 - frequency response plotting
 - local-only filtered audio export
-
-Planned:
 - spectrogram analysis
 - fingerprint-based matching
 
@@ -72,7 +71,8 @@ Planned:
 - Time-domain signal visualization
 - FIR filtering
 - Frequency response analysis
-- Spectrogram analysis, planned
+- Spectrogram analysis
+- Fingerprint matching
 
 ## Running the Ingestion Demo
 Place the local example WAV files in:
@@ -126,6 +126,34 @@ figures/
 
 These generated files are ignored by Git.
 
+## Running the Fingerprint Matcher
+The fingerprint matcher expects a local 9-song WAV database:
+```text
+data/fingerprint_db/song01.wav
+data/fingerprint_db/song02.wav
+data/fingerprint_db/song03.wav
+data/fingerprint_db/song04.wav
+data/fingerprint_db/song05.wav
+data/fingerprint_db/song06.wav
+data/fingerprint_db/song07.wav
+data/fingerprint_db/song08.wav
+data/fingerprint_db/song09.wav
+```
+
+It also expects a local query file:
+```text
+data/queries/query.wav
+```
+
+Run:
+```bash
+/Applications/MATLAB_R2025b.app/bin/matlab -batch "cd src; run_fingerprint_matcher"
+```
+
+The script builds fingerprints for the 9-song database, fingerprints the query clip, compares the query against each database entry, and prints the closest song index.
+
+Local WAV files are ignored by Git.
+
 ## Audio Assets
 This repository expects local WAV files for demos and tests.
 
@@ -147,7 +175,7 @@ src/run_filter_pipeline.m
 src/run_fingerprint_matcher.m
 ```
 
-The ingestion and FIR filtering scripts are implemented. The fingerprinting script is reserved for a planned matching module.
+The ingestion, FIR filtering, and fingerprint matching scripts are implemented.
 
 ## Engineering Notes
 The project is intentionally organized as a staged pipeline instead of a single script. This makes each processing stage easier to test, replace, and extend.

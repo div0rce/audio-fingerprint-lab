@@ -11,7 +11,9 @@ The current pipeline supports:
 - FIR low-pass filtering,
 - FIR high-pass filtering,
 - filter response plotting,
-- local-only filtered audio export.
+- local-only filtered audio export,
+- spectrogram-based fingerprint generation,
+- query-to-database fingerprint matching.
 
 ## Technical Signals
 - MATLAB scripting
@@ -20,9 +22,13 @@ The current pipeline supports:
 - Hamming-window filter construction
 - frequency-response analysis
 - phase-response analysis
+- spectrogram analysis
+- local peak detection
+- hash-style feature construction
+- Jaccard similarity scoring
 - batch-compatible MATLAB execution
 
 ## Planned Extensions
-- spectrogram generation
-- compact audio fingerprints
-- nearest-match query system
+- larger local fingerprint datasets
+- noisy-query matching experiments
+- compact fingerprint storage
