@@ -1,34 +1,28 @@
 # Audio Fingerprint Lab - Portfolio Summary
 
 ## One-Line Description
-A MATLAB audio-processing pipeline for WAV ingestion, waveform visualization, FIR filtering, and fingerprint-based matching.
+A MATLAB DSP project that ingests WAV files, visualizes waveforms, applies FIR filters, and matches audio clips using spectrogram-based fingerprints.
 
 ## Current Implementation
-The current pipeline supports:
-- local WAV ingestion,
-- sample-rate and duration inspection,
+The pipeline supports:
+- WAV ingestion and metadata extraction,
 - stereo-to-mono waveform visualization,
-- FIR low-pass filtering,
-- FIR high-pass filtering,
-- filter response plotting,
+- FIR low-pass and high-pass filtering,
+- magnitude and phase response plotting,
 - local-only filtered audio export,
 - spectrogram-based fingerprint generation,
 - query-to-database fingerprint matching.
 
 ## Technical Signals
-- MATLAB scripting
-- WAV audio I/O
-- FIR filter design
-- Hamming-window filter construction
-- frequency-response analysis
-- phase-response analysis
-- spectrogram analysis
-- local peak detection
+- MATLAB scripting with clear stage entry points
+- WAV audio I/O and sample-rate-aware processing
+- FIR filter design with Hamming windows
+- frequency-response and phase-response analysis
+- spectrogram analysis and local peak detection
 - hash-style feature construction
 - Jaccard similarity scoring
-- batch-compatible MATLAB execution
+- batch-compatible validation commands
+- clean public/private asset separation
 
-## Planned Extensions
-- larger local fingerprint datasets
-- noisy-query matching experiments
-- compact fingerprint storage
+## Reviewer Takeaway
+This repository demonstrates practical DSP implementation rather than a single throwaway script: the code is organized by pipeline stage, validates local inputs, keeps generated artifacts out of Git, and documents the signal-processing choices behind filtering and fingerprint matching.
