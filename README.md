@@ -74,3 +74,16 @@ Generated waveform plots are exported to:
 ```text
 figures/
 ```
+
+## Audio Assets
+This repository expects local WAV files for demos and tests.
+
+The initial ingestion demo looks for:
+```text
+data/examples/pirates.wav
+data/examples/papas megalitriti.wav
+```
+
+These files may be omitted from the public repository if they are course-provided, copyrighted, or otherwise not suitable for redistribution.
+
+To run the project, place compatible WAV files in `data/examples/` using the expected filenames, or edit the `fileNames` list in `src/ingest_audio_examples.m`.

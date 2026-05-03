@@ -1,10 +1,17 @@
 # Example Audio Files
-Place local WAV files for ingestion tests in this folder.
+Place demo WAV files in this folder.
 
-Expected initial examples:
+Default filenames expected by the ingestion script:
 ```text
 pirates.wav
 papas megalitriti.wav
 ```
 
-These files are not required to be committed publicly.
+The files may be kept local and omitted from GitHub if redistribution is not appropriate.
+
+To use different files, edit:
+```text
+src/ingest_audio_examples.m
+```
+
+and update the `fileNames` list.

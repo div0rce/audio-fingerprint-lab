@@ -1,4 +1,12 @@
 # Recordings
-Place user-recorded or self-collected WAV files in this folder.
+Place self-recorded WAV files in this folder for future fingerprinting experiments.
 
-This folder is reserved for later fingerprinting tests.
+Recommended format:
+```text
+.wav
+```
+
+Suggested naming pattern:
+```text
+artist_or_source_trackname_clipnumber.wav
+```
