@@ -1,11 +1,22 @@
-# Portfolio Summary
-Audio Fingerprint Lab is a MATLAB signal-processing project focused on audio ingestion, waveform analysis, FIR filtering, and simple fingerprint matching.
+# Audio Fingerprint Lab - Portfolio Summary
 
-Current implemented functionality:
-- WAV file loading,
-- sample-rate and duration inspection,
-- stereo-to-mono conversion,
-- waveform visualization,
-- figure export.
+## One-Line Description
+A MATLAB audio-processing pipeline for WAV ingestion, waveform visualization, FIR filtering, and fingerprint-based matching.
 
-The code is organized as a staged pipeline so future filtering and fingerprinting modules can be added cleanly.
+## Current Implementation
+The current stage loads local WAV files, extracts metadata, converts stereo signals to mono for analysis, plots time-domain waveforms, and exports figures.
+
+## Technical Signals
+- MATLAB scripting
+- audio file I/O
+- signal metadata extraction
+- time-domain visualization
+- modular project organization
+- staged DSP pipeline design
+
+## Planned Extensions
+- FIR low-pass and high-pass filtering
+- frequency-response visualization
+- spectrogram generation
+- compact audio fingerprints
+- nearest-match query system
