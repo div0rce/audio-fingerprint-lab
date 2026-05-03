@@ -10,7 +10,7 @@ The pipeline is designed around four stages:
 3. FIR-based filtering,
 4. spectrogram-driven fingerprint comparison.
 
-The current implementation focuses on the repository scaffold.
+The current implementation focuses on the ingestion and waveform visualization stage.
 
 ## Project Goals
 - Load WAV files into MATLAB.
@@ -40,9 +40,37 @@ audio-fingerprint-lab/
 
 ## Current Status
 Implemented:
-- repository scaffold
+- WAV file ingestion with `audioread`
+- playback with `sound`
+- metadata extraction
+- stereo-to-mono conversion for analysis
+- time-domain waveform plotting
+- figure export
 
 Planned:
-- WAV ingestion and waveform visualization
 - FIR filtering
-- fingerprint-based audio matching
+- spectrogram analysis
+- fingerprint-based matching
+
+## Running the Ingestion Demo
+Place the local example WAV files in:
+```text
+data/examples/
+```
+
+Expected initial files:
+```text
+data/examples/pirates.wav
+data/examples/papas megalitriti.wav
+```
+
+From MATLAB, run:
+```matlab
+cd src
+ingest_audio_examples
+```
+
+Generated waveform plots are exported to:
+```text
+figures/
+```
