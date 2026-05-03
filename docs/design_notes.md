@@ -20,5 +20,26 @@ The ingestion script performs five basic operations:
 
 The script uses a cell-array structure so additional files can be added with minimal changes.
 
+## Stage 2: FIR Filtering
+The filtering stage applies finite impulse response filters to local WAV files.
+
+Implemented filter configurations:
+1. 64-order low-pass filter, cutoff frequency 3 kHz
+2. 32-order low-pass filter, cutoff frequency 3 kHz
+3. 64-order high-pass filter, cutoff frequency 3 kHz
+
+The filters are designed with MATLAB's `fir1` function using a Hamming window. The normalized cutoff is computed as:
+```matlab
+normalizedCutoff = cutoffFreq / (Fs / 2);
+```
+
+The lower-order low-pass filter has a wider transition band than the 64-order version. The higher-order filter gives a sharper cutoff, at the cost of more taps and greater filtering delay.
+
+For each filter, the project exports:
+- magnitude response versus rad/sample,
+- magnitude response versus Hz,
+- phase response versus rad/sample,
+- phase response versus Hz.
+
 ## Pipeline Organization
 Each stage is exposed through a separate MATLAB entry point. This keeps ingestion, filtering, and fingerprint matching independently testable as the project grows.
