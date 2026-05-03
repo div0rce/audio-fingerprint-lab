@@ -19,3 +19,6 @@ The ingestion script performs five basic operations:
 5. exports time-domain waveform figures.
 
 The script uses a cell-array structure so additional files can be added with minimal changes.
+
+## Pipeline Organization
+Each stage is exposed through a separate MATLAB entry point. This keeps ingestion, filtering, and fingerprint matching independently testable as the project grows.

@@ -12,6 +12,16 @@ The pipeline is designed around four stages:
 
 The current implementation focuses on the ingestion and waveform visualization stage.
 
+## Features
+| Area | Status | Description |
+|---|---:|---|
+| WAV ingestion | Implemented | Loads local WAV files using MATLAB |
+| Metadata extraction | Implemented | Reports sample rate, duration, samples, and channels |
+| Waveform visualization | Implemented | Plots mono time-domain waveform |
+| Figure export | Implemented | Saves generated plots to `figures/` |
+| FIR filtering | Planned | Low-pass and high-pass audio filtering |
+| Fingerprint matching | Planned | Spectrogram-based matching pipeline |
+
 ## Project Goals
 - Load WAV files into MATLAB.
 - Inspect sample rate, duration, channel count, and sample count.
@@ -51,6 +61,13 @@ Planned:
 - FIR filtering
 - spectrogram analysis
 - fingerprint-based matching
+
+## Technical Stack
+- MATLAB
+- WAV audio I/O
+- Time-domain signal visualization
+- FIR filtering, planned
+- Spectrogram analysis, planned
 
 ## Running the Ingestion Demo
 Place the local example WAV files in:
@@ -96,3 +113,6 @@ src/run_fingerprint_matcher.m
 ```
 
 These scripts currently act as explicit entry points for the planned filtering and fingerprinting modules.
+
+## Engineering Notes
+The project is intentionally organized as a staged pipeline instead of a single script. This makes each processing stage easier to test, replace, and extend.
