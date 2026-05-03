@@ -62,3 +62,6 @@ The query is assigned to the database song with the highest score. This simple m
 
 ## Pipeline Organization
 Each stage is exposed through a separate MATLAB entry point. This keeps ingestion, filtering, and fingerprint matching independently testable as the project grows.
+
+## Asset Boundary
+The repository is structured so implementation and documentation can be public while audio assets and generated artifacts remain local. This keeps the Git history focused on source code, reproducible commands, and design notes rather than binary media files.
